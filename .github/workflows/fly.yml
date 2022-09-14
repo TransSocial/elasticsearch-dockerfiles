@@ -16,7 +16,8 @@ jobs:
     - uses: actions/checkout@v2
     
     - uses: superfly/flyctl-actions/setup-flyctl@master
-    - run: flyctl deploy --local-only
+    - name: Deploy
+      run: flyctl deploy
+      working-directory: ./elasticsearcg
       env:
         FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
-        DOCKER_BUILDKIT: 0
